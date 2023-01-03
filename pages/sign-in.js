@@ -23,7 +23,7 @@ export default function SignInPage({ providers }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const providers = await getProviders();
   return {
     props: { providers },
