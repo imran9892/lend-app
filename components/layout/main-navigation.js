@@ -17,7 +17,7 @@ const MainNavigation = () => {
 
   return (
     <header className={classes.header}>
-      <Link href={session ? '/' : '/dashboard'}>
+      <Link href={session ? '/dashboard' : '/'}>
         <Image src={Logo} alt="Lend" />
         <h1>Lend</h1>
       </Link>
