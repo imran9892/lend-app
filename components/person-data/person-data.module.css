@@ -1,0 +1,83 @@
+.person {
+  margin: auto;
+  padding: 3rem 1rem;
+  color: black;
+}
+
+.person div > div.amount {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2rem;
+}
+
+.person div > div p {
+  font-weight: 600;
+  font-size: large;
+}
+
+.person table {
+  margin: 3rem auto;
+  width: 90%;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+
+.person table td,
+.person table th {
+  padding: 0.5rem 0.2rem;
+  text-align: center;
+}
+
+.person table thead {
+  background-color: blanchedalmond;
+}
+
+.person table tbody .minus {
+  background-color: rgba(255, 80, 80, 0.2);
+}
+.person table tbody .plus {
+  background-color: rgba(80, 255, 80, 0.2);
+}
+
+.person table tbody td > div:first-of-type {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.person table tfoot {
+  align-items: center;
+}
+
+.person > button {
+  margin: 2rem auto;
+}
+
+.person button:nth-of-type(2) {
+  margin: 2rem 3rem;
+}
+
+@media only screen and (max-width: 700px) {
+  .person div > div.amount {
+    margin: 0 1rem;
+  }
+  .person div > div p {
+    font-size: medium;
+  }
+  .person table {
+    font-size: 0.7rem;
+    width: 100%;
+  }
+  .person table tbody td > div:first-of-type {
+    justify-content: space-between;
+    /* gap: 0.3rem; */
+  }
+  .person table tbody tr td div img {
+    height: 18px;
+    width: 18px;
+  }
+  .person > button:nth-of-type(2) {
+    margin: 3rem 1rem;
+  }
+}

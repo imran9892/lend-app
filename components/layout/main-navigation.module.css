@@ -1,0 +1,31 @@
+.header {
+  width: 100%;
+  height: 4rem;
+  background-color: rgb(41, 41, 41);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.header a {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.header img {
+  height: 50px;
+  width: 50px;
+}
+
+.header p {
+  font-size: large;
+}
+
+.header p:hover,
+.header p:active,
+.header .active {
+  color: aqua;
+}

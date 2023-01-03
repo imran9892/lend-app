@@ -1,0 +1,21 @@
+.button {
+  outline: 0;
+  padding: 12px;
+  background-color: #0072ff;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: rgb(236, 236, 236);
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.button:hover,
+.button:active,
+.button:focus {
+  background-color: #007edfd1;
+}
