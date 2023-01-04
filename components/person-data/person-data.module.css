@@ -2,6 +2,7 @@
   margin: auto;
   padding: 3rem 1rem;
   color: black;
+  max-width: 1000px;
 }
 
 .person div > div.amount {
@@ -64,6 +65,7 @@
 @media only screen and (max-width: 700px) {
   .person div > div.amount {
     margin: 0 1rem;
+    font-size: small;
   }
   .person div > div p {
     font-size: medium;

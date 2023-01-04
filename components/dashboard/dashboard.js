@@ -63,11 +63,8 @@ const Dashboard = ({ payments }) => {
               style={{
                 background:
                   lend.remainingAmount > 0
-                    ? 'linear-gradient(to left, #00c6ff, #0072ff)'
-                    : 'linear-gradient(to right, #202020, #e74c1a)',
-                '&:hover': {
-                  background: 'linear-gradient(to right, #000000, #e74c3c)',
-                },
+                    ? 'linear-gradient(to right, #00c6ff, #0072ff)'
+                    : 'linear-gradient(to right, #ed213a, #93291e)',
               }}
               key={lend.personId}
               onClick={() => router.push(`/dashboard/${lend.name}`)}

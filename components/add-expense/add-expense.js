@@ -27,7 +27,7 @@ const AddExpense = (props) => {
           description: lend.description,
           amount: lend.amount < 0 ? lend.amount * -1 : lend.amount,
         }
-      : { name: nameQuery },
+      : { name: nameQuery, date: new Date().toISOString().split('T')[0] },
   });
 
   useEffect(() => {
@@ -182,7 +182,6 @@ const AddExpense = (props) => {
             <input
               id="date"
               type="date"
-              required
               {...register('date', { required: true })}
             />
             {errors.date && <p className={classes.error}>Select the Date</p>}
