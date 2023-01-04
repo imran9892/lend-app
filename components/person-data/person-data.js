@@ -8,9 +8,11 @@ import deleteIcon from '../../public/icons/delete-icon.svg';
 import Image from 'next/image';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router';
 
 const PersonData = ({ person }) => {
   const [lends, setLends] = useState(person.lends);
+  const router = useRouter();
 
   const NumberFormat = new Intl.NumberFormat('en-IN', {
     style: 'currency',
@@ -39,6 +41,33 @@ const PersonData = ({ person }) => {
         isLoading: false,
         autoClose: 2000,
       });
+    } else {
+      toast.update(toastId, {
+        render: deletedPayment.message,
+        type: 'error',
+        isLoading: false,
+        autoClose: 5000,
+      });
+    }
+  };
+
+  const deleteAccountHandler = async () => {
+    if (!window.confirm('Are you sure you want to Delete this Account')) return;
+    const toastId = toast.loading('Deleting Payment');
+    const response = await fetch('/api/delete-account', {
+      method: 'DELETE',
+      body: JSON.stringify({ personId: person.personId }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const deletedAccount = await response.json();
+    if (deletedAccount.message === 'Success') {
+      toast.update(toastId, {
+        render: 'Account deleted successfully',
+        type: 'success',
+        isLoading: false,
+        autoClose: 1000,
+      });
+      setTimeout(() => router.replace('/dashboard'), 900);
     } else {
       toast.update(toastId, {
         render: deletedPayment.message,
@@ -108,9 +137,21 @@ const PersonData = ({ person }) => {
       <Button>
         <Link href={`/add-expense?name=${person.name}`}>Add New Payment</Link>
       </Button>
-      <Button style={{ backgroundColor: 'black' }}>
-        <Link href="/dashboard">Go Back</Link>
-      </Button>
+      <div className={classes.actions}>
+        <Button
+          style={{
+            backgroundColor: 'black',
+          }}
+        >
+          <Link href="/dashboard">Go Back</Link>
+        </Button>
+        <Button
+          style={{ backgroundColor: 'red' }}
+          onClick={deleteAccountHandler}
+        >
+          Delete Account
+        </Button>
+      </div>
       <ToastContainer
         position="bottom-right"
         closeOnClick

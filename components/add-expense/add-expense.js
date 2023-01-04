@@ -97,9 +97,9 @@ const AddExpense = (props) => {
           render: 'Payment updated successfully',
           type: 'success',
           isLoading: false,
-          autoClose: 3000,
+          autoClose: 2000,
         });
-        setTimeout(() => router.back(), 3000);
+        setTimeout(() => router.back(), 1800);
       } else {
         toast.update(toastId, {
           render: responseData.message,
